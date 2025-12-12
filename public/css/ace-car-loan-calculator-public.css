@@ -1,0 +1,206 @@
+/* MAIN CONTAINER */
+.clc-container {
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  color: #333;
+  max-width: 1200px;
+}
+
+/* HEADINGS */
+.clc-container h4 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 800;
+}
+
+/* SECTIONS */
+.ace_outer_section,
+.ace_additional-sec,
+.result-section {
+  margin-top: 30px;
+}
+
+.ace_inner_section,
+.interest-section,
+.toggle_section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.ace_left_div,
+.ace_right_div {
+  flex: 1 1 45%;
+  min-width: 250px;
+}
+
+/* INPUT WRAPPERS */
+.ace_input_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.ace_input_wrapper label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #444;
+}
+
+.ace_input_wrapper input.ace_input {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fafafa;
+  transition: border 0.3s ease;
+}
+
+.ace_input_wrapper input.ace_input:focus {
+  outline: none;
+  border-color: #0073aa;
+  background-color: #fff;
+}
+
+/* BUTTONS */
+.ace_button,
+.ace_result_button {
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #0073aa;
+  width: 100%;
+}
+
+.year-count {
+  background-color: #d72525;
+  color: #fff;
+  font-weight: 800;
+  font-size: 18px !important;
+}
+
+.ace_button:hover,
+.ace_result_button:hover {
+  background-color: #005f89;
+}
+
+.ace_result_button.active {
+  background-color: #004f77;
+}
+
+/* TABLES */
+.ace_table,
+.loanData,
+.interestData {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+}
+
+.ace_table th,
+.ace_table td,
+.loanData td,
+.interestData td {
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+  width: 80%;
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+#calculate {
+  width: auto !important;
+}
+.ace_table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #333;
+}
+
+.ace_table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* CHART */
+.chart {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.hidden-section {
+  display: none;
+}
+
+.result-section.show {
+  display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .ace_inner_section,
+  .interest-section,
+  .toggle_section {
+    flex-direction: column;
+  }
+
+  .ace_left_div,
+  .ace_right_div {
+    flex: 1 1 100%;
+  }
+  #pie-chart {
+    width: 100% !important;
+    height: 300px;
+  }
+}
+
+#pie-chart {
+  width: 25%;
+  height: 300px;
+}
+
+.cc_color_picker_wrap {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cc_color_picker_wrap input[type="color"] {
+  width: 50px;
+  height: 40px;
+  padding: 0;
+  border: none;
+}
+
+.cc_color_picker_wrap input[type="text"] {
+  width: 120px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Wrapper scroll for small devices */
+.clc-table-wrapper {
+  width: 100%;
+  overflow-x: auto !important; /* enable horizontal scroll */
+}
+
+/* Responsive: smaller text on mobiles */
+@media (max-width: 768px) {
+  .ace_table th,
+  .ace_table td {
+    font-size: 14px;
+    padding: 6px;
+  }
+}

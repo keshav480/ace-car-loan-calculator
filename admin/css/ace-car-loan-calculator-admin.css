@@ -1,0 +1,250 @@
+.main-outer {
+  margin: 30px auto;
+  /* background: #ffffff; */
+  padding: 30px;
+  /* border: 1px solid #e0e0e0; */
+  border-radius: 8px;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); */
+}
+
+.outer-section {
+  border: solid 1px gray;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #8080800d;
+}
+
+.main-outer h1 {
+  font-size: 24px;
+  color: #005f89;
+  margin-bottom: 20px;
+}
+
+.main-outer h2.title {
+  border-left: 4px solid #005f89;
+  padding-left: 12px;
+  margin-top: 40px;
+  font-size: 20px;
+  color: #333;
+  margin: 15px 0px 35px 0px !important;
+}
+
+.main-outer .inner-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.main-outer .left-div,
+.main-outer .right-div {
+  display: flex;
+  align-items: center;
+  /* gap: 10px; */
+}
+
+.main-outer .cc_input {
+  padding: 4px 9px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  cursor: default;
+}
+
+.main-outer .cc_button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #1ba249;
+  color: #fff;
+  cursor: pointer;
+}
+
+.main-outer .cc_button:hover {
+  background-color: #00486b;
+}
+
+.main-outer .cc_table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.main-outer .cc_table th,
+.main-outer .cc_table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eaeaea;
+  vertical-align: middle;
+}
+
+.main-outer .cc_table th {
+  width: 240px;
+  font-weight: 600;
+  color: #333;
+}
+
+.main-outer .cc_table input[type="text"],
+.main-outer .cc_table input[type="number"],
+.main-outer .cc_table select,
+.main-outer .cc_table input[type="color"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background: #fff;
+  box-sizing: border-box;
+  width: 100% !important;
+}
+
+.main-outer input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.main-outer .updated.notice {
+  margin: 20px 0;
+  border-left: 4px solid #46b450;
+  background-color: #ecf8ed;
+  padding: 10px 15px;
+  border-radius: 4px;
+  color: #2c662d;
+  font-size: 14px;
+}
+
+.main-outer .form-table {
+  margin-top: 10px;
+}
+
+.main-outer .submit {
+  margin-top: 20px;
+}
+
+.main-outer input[type="submit"],
+.main-outer .button-primary {
+  background-color: #005f89;
+  border: none;
+  padding: 2px 18px;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.main-outer input[type="submit"]:hover,
+.main-outer .button-primary:hover {
+  background-color: #00486b;
+}
+
+/* Modern Admin Form Layout */
+.cc_form_group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.cc_input_group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 48%;
+  min-width: 250px;
+}
+
+.label-section {
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #9992921a;
+}
+
+.cc_input_group,
+.cc_currency_group label {
+  margin-bottom: 6px;
+  color: #333;
+}
+
+#ace_currency_symbol {
+  max-width: 100%;
+}
+
+.cc_currency_group {
+  width: 100%;
+}
+
+.cc_input_group input[type="text"],
+.cc_currency_group input[type="text"],
+.cc_input_group input[type="number"],
+.cc_currency_group input[type="number"],
+.cc_input_group input[type="color"],
+.cc_currency_group input[type="color"],
+.cc_input_group select,
+.cc_currency_group select {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.two-column-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form_column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.left_column .cc_input_group,
+.right_column .cc_input_group {
+  margin-bottom: 15px;
+}
+
+.form_column.left_column {
+  margin-top: 7px;
+}
+
+@media (max-width: 768px) {
+  .two-column-layout {
+    flex-direction: column;
+  }
+}
+
+.outer-section {
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #9992921a;
+  width: 50%;
+}
+
+.outer-section .title {
+  margin-top: 0;
+  font-size: 20px;
+  color: #005f89;
+}
+
+.div-outer-section {
+  display: flex;
+  gap: 18px;
+}
+
+.inner-color {
+  display: flex;
+}
+
+.pcr-button {
+  height: 45px !important;
+  width: 45px !important;
+}
