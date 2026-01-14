@@ -127,58 +127,103 @@
       $(".result-section .data .interestData tbody").html(costCalc);
 
       calculateTable(loanAmount, loanTerm, monthlyInterestRate, monthlyPayment);
-      //show chart
-      Highcharts.chart("pie-chart", {
-        chart: {
-          type: "pie",
-        },
-        title: {
-          text: "Loan Breakdown",
-        },
-        legend: {
-          enabled: true,
-        },
-        tooltip: {
-          formatter: function () {
-            return `<b>${currencyformatter.format(
-              this.y
-            )}</b> (${this.percentage.toFixed(1)}%)`;
-          },
-          backgroundColor: "rgba(0, 0, 0, 0.75)",
-          style: {
-            color: "white",
-          },
-        },
-        plotOptions: {
-          pie: {
-            innerSize: "50%",
-            dataLabels: {
-              enabled: true,
-              format: "{point.percentage:.1f}%",
-              style: {
-                fontWeight: "bold",
-                color: "white",
-              },
-              distance: -30,
-            },
-          },
-        },
-        series: [
-          {
-            data: [
+      //show chart using Chart.js
+      const ctx = document.getElementById("pie-chart");
+      if (ctx) {
+        // Destroy existing chart if it exists
+        if (window.loanPieChart && window.loanPieChart instanceof Chart) {
+          window.loanPieChart.destroy();
+        }
+        
+        const principalAmount = loanAmount;
+        const interestAmount = Number(loanInterest.toFixed(2));
+        const totalAmount = principalAmount + interestAmount;
+        
+        window.loanPieChart = new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            labels: ["Principal", "Interest"],
+            datasets: [
               {
-                name: "Principal",
-                y: loanAmount,
-              },
-              {
-                name: "Interest",
-                y: Number(loanInterest.toFixed(2)),
+                data: [principalAmount, interestAmount],
+                backgroundColor: [
+                  "#4da6ff",
+                  "#ff6666",
+                ],
+                borderColor: [
+                  "#0073aa",
+                  "#cc0000",
+                ],
+                borderWidth: 2,
+                hoverBackgroundColor: [
+                  "#3386d6",
+                  "#ff3333",
+                ],
+                hoverBorderWidth: 3,
               },
             ],
           },
-        ],
-        credits: { enabled: false },
-      });
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            layout: {
+              padding: 10,
+            },
+            plugins: {
+              legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                  padding: 15,
+                  font: {
+                    size: 13,
+                    weight: "600",
+                  },
+                  generateLabels: function (chart) {
+                    const data = chart.data;
+                    return data.labels.map((label, index) => {
+                      const value = data.datasets[0].data[index];
+                      const percentage = ((value / totalAmount) * 100).toFixed(1);
+                      return {
+                        text: `${label}: ${currencyformatter.format(value)} (${percentage}%)`,
+                        fillStyle: data.datasets[0].backgroundColor[index],
+                        hidden: false,
+                        index: index,
+                      };
+                    });
+                  },
+                },
+              },
+              tooltip: {
+                backgroundColor: "rgba(0, 0, 0, 0.8)",
+                padding: 12,
+                titleFont: {
+                  size: 14,
+                  weight: "bold",
+                },
+                bodyFont: {
+                  size: 13,
+                },
+                borderColor: "rgba(255, 255, 255, 0.3)",
+                borderWidth: 1,
+                callbacks: {
+                  title: function (context) {
+                    return context[0].label;
+                  },
+                  label: function (context) {
+                    const value = context.parsed;
+                    const percentage = ((value / totalAmount) * 100).toFixed(1);
+                    return `Amount: ${currencyformatter.format(value)} (${percentage}%)`;
+                  },
+                  afterLabel: function (context) {
+                    return "";
+                  },
+                },
+              },
+            },
+          },
+        });
+      }
     });
   });
 

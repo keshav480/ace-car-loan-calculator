@@ -136,7 +136,7 @@ $heading_text_color  = get_option('ace_heading_textcolor', '#fba32e;');
 			<?php if ($enable_pie_chart): ?>
 				<div class="clc-table-wrapper">
 					<div class="chart ace_left_div">
-						<div id="pie-chart"></div>
+						<canvas id="pie-chart"></canvas>
 					</div>
 				</div>
 			<?php endif; ?>

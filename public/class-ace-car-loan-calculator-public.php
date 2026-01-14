@@ -121,11 +121,13 @@ class Ace_Car_Loan_Calculator_Public
 		);
 		wp_enqueue_script('jquery');
 
+		$chartjs_file = plugin_dir_path(__FILE__) . 'js/chart.js';
+		$chartjs_ver  = file_exists($chartjs_file) ? filemtime($chartjs_file) : $this->version;
 		wp_enqueue_script(
-			'highcharts',
-			'https://code.highcharts.com/highcharts.js',
+			'chartjs',
+			plugin_dir_url(__FILE__) . 'js/chart.js',
 			[],
-			time(),
+			$chartjs_ver,
 			true
 		);
 
